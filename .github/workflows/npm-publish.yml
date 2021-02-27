@@ -1,0 +1,32 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@sarantrs'
+      
+      - name:  Setting npm credentials to publish
+        run: npm config set //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}
+      - name: Check if lib folder version has been updated
+        id: saran-library-poc
+        uses: EndBug/version-check@v1
+        with:
+          diff-search: true
+          file-name: saran-library-poc/package.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish first-folder to GitHub Packages
+        if: steps.saran-library-poc.outputs.changed == 'true'
+        run: npm publish saran-library-poc
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN }}
