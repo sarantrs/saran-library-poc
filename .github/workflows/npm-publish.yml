@@ -18,15 +18,15 @@ jobs:
       
       - name:  Setting npm credentials to publish
         run: npm config set //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}
-      - name: Check if lib folder version has been updated
+      - name: Check if saran-library-poc version has been updated
         id: saran-library-poc
         uses: EndBug/version-check@v1
         with:
           diff-search: true
-          file-name: saran-library-poc/package.json
+          file-name: package.json
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish first-folder to GitHub Packages
+      - name: Publish saran-library-poc to GitHub Packages
         if: steps.saran-library-poc.outputs.changed == 'true'
-        run: npm publish saran-library-poc
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN }}
