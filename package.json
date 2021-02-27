@@ -1,5 +1,5 @@
 {
-  "name": "saran-library-poc",
+  "name": "@sarantrs/saran-library-poc",
   "version": "0.1.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -8,9 +8,6 @@
   ],
   "repository": {
     "url":"https://github.com/sarantrs/saran-library-poc.git"
-  },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com/@sarantrs"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
