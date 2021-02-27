@@ -25,7 +25,9 @@ jobs:
           diff-search: true
           file-name: package.json
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name:  Build application
+      - name: Install dependency
+        run: npm install
+      - name: Build application
         run: npm run build
       - name: Publish saran-library-poc to GitHub Packages
         if: steps.saran-library-poc.outputs.changed == 'true'
