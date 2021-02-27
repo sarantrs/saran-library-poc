@@ -1,0 +1,33 @@
+.loader-wrapper-center{
+    position: fixed;
+    top:calc(50% - 50px);
+    left:calc(50% - 50px);
+}
+.los-custom-loading{
+    height:100px;
+    min-width:100px;
+    margin: 0 auto;
+    text-align: center;
+     /* Safari and Chrome */
+     animation: changeBg;
+     
+}
+
+.los-custom-loading .loader
+    {
+      height:100%;
+      width:100%;
+      background-repeat: no-repeat;
+      animation: changeBg 1s infinite;
+      -webkit-animation: changeBg 1s infinite;
+    }
+
+    @keyframes changeBg
+    {
+      0%   {background: url("./images/cync_6.svg") no-repeat center center transparent;}
+      20%  {background: url("./images/cync_5.svg") no-repeat center center transparent;}
+      40%  {background: url("./images/cync_4.svg") no-repeat center center transparent;}
+      60% {background: url("./images/cync_3.svg") no-repeat center center transparent;}
+      80% {background: url("./images/cync_2.svg") no-repeat center center transparent;}
+      100% {background: url("./images/cync_1.svg") no-repeat center center transparent;}
+    }   
