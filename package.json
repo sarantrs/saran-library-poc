@@ -26,10 +26,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
