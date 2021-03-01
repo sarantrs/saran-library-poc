@@ -29,7 +29,10 @@ export default [
         })],
         minimize: true, 
         extract: true,
-        modules: true,
+        modules: {
+          generateScopedName: "[hash:base64:8]",
+        },
+        autoModules: true,
         use: ['sass'],
       }),
       babel({
