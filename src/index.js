@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./examples/App";
+import TextInput from "./components/input/TextInput";
+import Loader from "./components/loader/loader.jsx";
 
-import "./index.css";
-
-ReactDOM.render(<App />, document.getElementById("root"));
+export { 
+    TextInput,
+    Loader
+};
