@@ -3,7 +3,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
-
+import image from 'rollup-plugin-image';
+const url = require('postcss-url');
 export default [
   {
     input: './src/index.js',
@@ -20,7 +21,12 @@ export default [
     ],
     plugins: [
       postcss({
-        plugins: [],
+        plugins: [
+          url({
+          url: "inline", // enable inline assets using base64 encoding
+          maxSize: 1000, // maximum file size to inline (in kilobytes)
+          fallback: "copy", // fallback method to use if max size is exceeded
+        })],
         minimize: true, 
         extract: true,
         modules: true,
@@ -34,6 +40,7 @@ export default [
       external(),
       resolve(),
       terser(),
+      image()
     ]
   }
 ];
