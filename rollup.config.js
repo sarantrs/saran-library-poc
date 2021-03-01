@@ -22,7 +22,7 @@ export default [
       postcss({
         plugins: [],
         minimize: true, 
-        extract: false,
+        extract: true,
         modules: true,
         use: ['sass'],
       }),
