@@ -1,5 +1,309 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+
+:root {
+  /*
+  Helpful maintenance tools:
+
+  https://htmlcolors.com/hex-to-hsl
+  https://www.w3schools.com/colors/colors_hsl.asp
+  https://meyerweb.com/eric/tools/color-blend/#FEF1F2:EC202A:9:hex
+  */
+
+  --los-bg-color: #fff;
+  --los-active-color: #fff;
+  --los-text-color: #333;
+  --los-inactive-text-color: #777;
+  --los-form-error-color: #ff0f35;
+  --los-focus-color: #99c7ff;
+  --los-focus-shadow-color: #e5f1ff;
+  --los-border-color: #ced4da;
+  --los-list-item-border-color: #eee;
+  --los-border-radius: 0.25em;
+  --los-danger-btn-color: #dc3545;
+  --logo-width: 189px;
+  --logo-height: 112px;
+
+  /* main navigation */
+
+  --los-primary-nav-fg-color: #fff;
+  --los-primary-nav-selected-fg-color: #099AED;
+  --los-primary-nav-bg-color: #444;
+  --los-primary-nav-hover-bg-color: #333;
+  --los-primary-nav-selected-bg-color: #1b1c1d;
+  --los-nav-dark-bg-pulse-color: rgba(255, 255, 255, 0.2);
+
+  /*
+  Each primary color has 10 darker and 10 lighter variations;
+  darkest is generally hs(l-30%), while lightest is generally hs(l=97%)
+  */
+
+  --los-pri-color-1-dark-10: #010709;
+  --los-pri-color-1-dark-9: #021117;
+  --los-pri-color-1-dark-8: #041B25;
+  --los-pri-color-1-dark-7: #052532;
+  --los-pri-color-1-dark-6: #062F40;
+  --los-pri-color-1-dark-5: #083A4E;
+  --los-pri-color-1-dark-4: #09445C;
+  --los-pri-color-1-dark-3: #0A4E6A;
+  --los-pri-color-1-dark-2: #0B5877;
+  --los-pri-color-1-dark-1: #0D6285;
+  --los-pri-color-1: #0E6C93;
+  --los-pri-color-1-light-1: #257A9E;
+  --los-pri-color-1-light-2: #3B88A8;
+  --los-pri-color-1-light-3: #5297B3;
+  --los-pri-color-1-light-4: #69A5BE;
+  --los-pri-color-1-light-5: #80B3C9;
+  --los-pri-color-1-light-6: #96C1D3;
+  --los-pri-color-1-light-7: #ADCFDE;
+  --los-pri-color-1-light-8: #C4DEE9;
+  --los-pri-color-1-light-9: #DAECF3;
+  --los-pri-color-1-light-10: #F1FAFE;
+
+  --los-pri-color-2-dark-10: #061014;
+  --los-pri-color-2-dark-9: #0A1A20;
+  --los-pri-color-2-dark-8: #0D232C;
+  --los-pri-color-2-dark-7: #112D38;
+  --los-pri-color-2-dark-6: #143644;
+  --los-pri-color-2-dark-5: #184050;
+  --los-pri-color-2-dark-4: #1B495B;
+  --los-pri-color-2-dark-3: #1F5367;
+  --los-pri-color-2-dark-2: #225C73;
+  --los-pri-color-2-dark-1: #26667F;
+  --los-pri-color-2: #296F8B;
+  --los-pri-color-2-light-1: #3D7D96;
+  --los-pri-color-2-light-2: #518BA1;
+  --los-pri-color-2-light-3: #6698AD;
+  --los-pri-color-2-light-4: #7AA6B8;
+  --los-pri-color-2-light-5: #8EB4C3;
+  --los-pri-color-2-light-6: #A2C2CE;
+  --los-pri-color-2-light-7: #B6D0D9;
+  --los-pri-color-2-light-8: #CBDDE5;
+  --los-pri-color-2-light-9: #DFEBF0;
+  --los-pri-color-2-light-10: #F3F9FB;
+
+  --los-pri-color-3-dark-10: #000000;
+  --los-pri-color-3-dark-9: #00070A;
+  --los-pri-color-3-dark-8: #000E13;
+  --los-pri-color-3-dark-7: #00151D;
+  --los-pri-color-3-dark-6: #001C26;
+  --los-pri-color-3-dark-5: #002330;
+  --los-pri-color-3-dark-4: #002A3A;
+  --los-pri-color-3-dark-3: #003143;
+  --los-pri-color-3-dark-2: #00384D;
+  --los-pri-color-3-dark-1: #003F56;
+  --los-pri-color-3: #004660;
+  --los-pri-color-3-light-1: #185870;
+  --los-pri-color-3-light-2: #306A80;
+  --los-pri-color-3-light-3: #487C90;
+  --los-pri-color-3-light-4: #608EA0;
+  --los-pri-color-3-light-5: #78A1B0;
+  --los-pri-color-3-light-6: #90B3BF;
+  --los-pri-color-3-light-7: #A8C5CF;
+  --los-pri-color-3-light-8: #C0D7DF;
+  --los-pri-color-3-light-9: #D8E9EF;
+  --los-pri-color-3-light-10: #F0FBFF;
+
+  --los-pri-color-4-dark-10: #184B5D;
+  --los-pri-color-4-dark-9: #1C5468;
+  --los-pri-color-4-dark-8: #205E74;
+  --los-pri-color-4-dark-7: #24677F;
+  --los-pri-color-4-dark-6: #28718A;
+  --los-pri-color-4-dark-5: #2C7A96;
+  --los-pri-color-4-dark-4: #3083A1;
+  --los-pri-color-4-dark-3: #348DAC;
+  --los-pri-color-4-dark-2: #3896B7;
+  --los-pri-color-4-dark-1: #3CA0C3;
+  --los-pri-color-4: #099AED;
+  --los-pri-color-4-light-1: #52B1D3;
+  --los-pri-color-4-light-2: #64B9D7;
+  --los-pri-color-4-light-3: #76C1DC;
+  --los-pri-color-4-light-4: #88C9E0;
+  --los-pri-color-4-light-5: #9AD1E5;
+  --los-pri-color-4-light-6: #ABD9EA;
+  --los-pri-color-4-light-7: #BDE1EE;
+  --los-pri-color-4-light-8: #CFE9F3;
+  --los-pri-color-4-light-9: #E1F1F7;
+  --los-pri-color-4-light-10: #F3F9FC;
+
+  --los-pri-color-5-dark-10: #05242E;
+  --los-pri-color-5-dark-9: #072F3C;
+  --los-pri-color-5-dark-8: #08394A;
+  --los-pri-color-5-dark-7: #0A4457;
+  --los-pri-color-5-dark-6: #0B4E65;
+  --los-pri-color-5-dark-5: #0D5973;
+  --los-pri-color-5-dark-4: #0F6481;
+  --los-pri-color-5-dark-3: #106E8F;
+  --los-pri-color-5-dark-2: #12799C;
+  --los-pri-color-5-dark-1: #1383AA;
+  --los-pri-color-5: #158EB8;
+  --los-pri-color-5-light-1: #2B99BF;
+  --los-pri-color-5-light-2: #41A4C6;
+  --los-pri-color-5-light-3: #57AECD;
+  --los-pri-color-5-light-4: #6DB9D4;
+  --los-pri-color-5-light-5: #83C4DB;
+  --los-pri-color-5-light-6: #99CFE1;
+  --los-pri-color-5-light-7: #AFDAE8;
+  --los-pri-color-5-light-8: #C5E4EF;
+  --los-pri-color-5-light-9: #DBEFF6;
+  --los-pri-color-5-light-10: #F1FAFD;
+
+  /* secondary colors */
+
+  --los-sec-color-1: #4E4E4E;
+  --los-sec-color-2: #F9F9F9;
+  --los-sec-color-3: #E65A1D;
+  --los-sec-color-4: #E5E5E5;
+  --los-sec-color-5: #595959;
+  --los-sec-color-6: #444;
+
+  /* grayscale */
+
+  --los-grey-dark-10: #444444;
+  --los-grey-dark-9: #494949;
+  --los-grey-dark-8: #4E4E4E;
+  --los-grey-dark-7: #535353;
+  --los-grey-dark-6: #585858;
+  --los-grey-dark-5: #5E5E5E;
+  --los-grey-dark-4: #636363;
+  --los-grey-dark-3: #686868;
+  --los-grey-dark-2: #6D6D6D;
+  --los-grey-dark-1: #727272;
+  --los-grey: #777;
+  --los-grey-light-1: #848484;
+  --los-grey-light-2: #919191;
+  --los-grey-light-3: #9D9D9D;
+  --los-grey-light-4: #AAAAAA;
+  --los-grey-light-5: #B7B7B7;
+  --los-grey-light-6: #C4C4C4;
+  --los-grey-light-7: #D1D1D1;
+  --los-grey-light-8: #DDDDDD;
+  --los-grey-light-9: #EAEAEA;
+  --los-grey-light-10: #F7F7F7;
+
+  /* UI only colors */
+
+  --los-ui-color-1: #00b02d;
+  --los-ui-color-1-dark: #207d38;
+  --los-ui-color-1-light: #1aff53;
+  --los-ui-color-1-lighter: #80ff9f;
+  --los-ui-color-1-lightest: #f0fff4;
+
+  --los-ui-color-2: #099aed;
+  --los-ui-color-2-dark: #0e6ba1;
+  --los-ui-color-2-light: #53bcf9;
+  --los-ui-color-2-lighter: #9dd9fb;
+  --los-ui-color-2-lightest: #f0f9fe;
+
+  /* alert/messages */
+
+  --los-msg-color-std: #333;
+  --los-msg-color-std-bg: #f8f8f9;
+
+  --los-msg-color-warning: #f45c2c;
+  --los-msg-color-warning-bg: #fffaf3;
+
+  --los-msg-color-info: #196aa1;
+  --los-msg-color-info-bg: #f4fafe;
+
+  --los-msg-color-success: #207d38;
+  --los-msg-color-success-bg: #f4fbf7;
+
+  --los-msg-color-error: #bb1a21;
+  --los-msg-color-error-bg: #fdf5f5;
+
+  /* spreading - there has been talks of branding, but still TBD */
+
+  --los-spreading-row-border-color: #dfe1e2;
+  --los-spreading-acct-bg-color: #1d3059;
+  --los-spreading-cat-bg-color: #2a4a8b;
+  --los-spreading-grp-bg-color: #d4ddf0;
+  --los-spreading-grp-calc-bg-color: #839fd6;
+  --los-spreading-custom-field-bg-color: #ceebfb;
+  --los-spreading-error-border-color: #ec202a;  
+
+  /* for tables with striped rows*/
+  --los-spreading-table-row-dark : #fafafb;
+  --los-spreading-table-row-light : #ffffff;
+
+  --los-modal-header-background : #2E6B9D;
+  --los-spreading-modal-header-close : #EFEFEF;
+  --los-spreading-modal-header: #666;
+
+  /* notifications */
+  --los-notification-count-bg-color: #ec202a;
+
+  /* Covenants */
+  --los-covenant-verify-bg-color: #FED617;
+  --los-covenant-evaluate-bg-color: #00B12D;
+  --los-covenant-strip-odd-color: #FAFAFA;
+  --los-covenant-reassign-tab-color: #E5F5FD;
+  --los-covenant-reassign-tab-bg-color: #DFDFDF;
+  --los-covenant-reassign-warning-color: #BA1A22;
+  --los-covenant-disabled-bg-color: #e9ecef;
+
+  /* Exceptions */
+  --los-critical-exception-header: #EC202A;
+
+   /*loan lifecycle*/
+  --withdraw-delete-container-color: #ffffcc;
+  --loan-form-control-disabled-color: #FAFAFA;
+
+  /*credit availability*/
+  --los-print-cut-score-border: #808080;
+}
+
+
+/* headers */
+
+h1 {
+  font-size: 2.25em;
+}
+
+h2 {
+  font-size: 1.9em;
+}
+
+h3 {
+  font-size: 1.65em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 1.1em;
+}
+
+/* padding sizes */
+
+.pad-mini {
+  padding: 0.125em;
+}
+
+.pad-tiny {
+  padding: 0.25em;
+}
+
+.pad-small {
+  padding: 0.5em;
+}
+
+.pad-large {
+  padding: 1em;
+}
+
+.pad-big {
+  padding: 1.5em;
+}
+
+.pad-huge {
+  padding: 1.75em;
+}
+
+.pad-massive {
+  padding: 2em;
 }

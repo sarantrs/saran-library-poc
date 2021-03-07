@@ -5,6 +5,7 @@ import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import image from 'rollup-plugin-image';
 const url = require('postcss-url');
+import commonjs from 'rollup-plugin-commonjs';
 export default [
   {
     input: './src/index.js',
@@ -15,8 +16,7 @@ export default [
       },
       {
         file: 'dist/index.es.js',
-        format: 'es',
-        exports: 'named',
+        format: 'es'
       }
     ],
     plugins: [
@@ -43,7 +43,8 @@ export default [
       external(),
       resolve(),
       terser(),
-      image()
+      image(),
+      commonjs()
     ]
   }
 ];

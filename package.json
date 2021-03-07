@@ -1,6 +1,6 @@
 {
   "name": "@sarantrs/saran-library-poc",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -22,9 +22,11 @@
     "postcss": "^8.2.6",
     "postcss-url": "^10.1.1",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.5.1",
     "react-dom": "^17.0.1",
     "rollup": "^2.38.4",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
@@ -37,7 +39,8 @@
   },
   "scripts": {
     "build-old": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "build": "NODE_ENV=production rollup -c"
+    "build": "NODE_ENV=production rollup -c",
+    "start": "rm -rf dist && NODE_ENV=production rollup -c && rm -rf example/node_modules/saran-library-poc && cp -R dist example/node_modules/saran-library-poc && cd example && npm run start"
   },
   "dependencies": {},
   "keywords": [],
