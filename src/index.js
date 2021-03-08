@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./index.css";
 import TextInput from "./components/input/TextInput";
 import Loader from "./components/loader/loader.jsx";
 import Bar from "./components/forms/ProgressBar.jsx";
